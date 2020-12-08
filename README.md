@@ -162,72 +162,139 @@ Perform an IKEv2 fragmentation attack at IKE_AUTH exchange
 APPENDIX
 --------
 IKEv2AttributeTypes = {"Encryption": (1, {"DES-IV64": 1,
+
                                           "DES": 2,
+					  
                                           "3DES": 3,
+					  
                                           "RC5": 4,
+					  
                                           "IDEA": 5,
+					  
                                           "CAST": 6,
+					  
                                           "Blowfish": 7,
+					  
                                           "3IDEA": 8,
+					  
                                           "DES-IV32": 9,
+					  
                                           "AES-CBC": 12,
+					  
                                           "AES-CTR": 13,
+					  
                                           "AES-CCM-8": 14,
+					  
                                           "AES-CCM-12": 15,
+					  
                                           "AES-CCM-16": 16,
+					  
                                           "AES-GCM-8ICV": 18,
+					  
                                           "AES-GCM-12ICV": 19,
+					  
                                           "AES-GCM-16ICV": 20,
+					  
                                           "Camellia-CBC": 23,
+					  
                                           "Camellia-CTR": 24,
+					  
                                           "Camellia-CCM-8ICV": 25,
+					  
                                           "Camellia-CCM-12ICV": 26,
+					  
                                           "Camellia-CCM-16ICV": 27,
+					  
                                           }, 0),
+					  
                        "PRF": (2, {"PRF_HMAC_MD5": 1,
+		       
                                    "PRF_HMAC_SHA1": 2,
+				   
                                    "PRF_HMAC_TIGER": 3,
+				   
                                    "PRF_AES128_XCBC": 4,
+				   
                                    "PRF_HMAC_SHA2_256": 5,
+				   
                                    "PRF_HMAC_SHA2_384": 6,
+				   
                                    "PRF_HMAC_SHA2_512": 7,
+				   
                                    "PRF_AES128_CMAC": 8,
+				   
                                    }, 0),
+				   
                       "Integrity": (3, {"HMAC-MD5-96": 1,
+		      
                                          "HMAC-SHA1-96": 2,
+					 
                                          "DES-MAC": 3,
+					 
                                          "KPDK-MD5": 4,
+					 
                                          "AES-XCBC-96": 5,
+					 
                                          "HMAC-MD5-128": 6,
+					 
                                          "HMAC-SHA1-160": 7,
+					 
                                          "AES-CMAC-96": 8,
+					 
                                          "AES-128-GMAC": 9,
+					 
                                          "AES-192-GMAC": 10,
+					 
                                          "AES-256-GMAC": 11,
+					 
                                          "SHA2-256-128": 12,
+					 
                                          "SHA2-384-192": 13,
+					 
                                          "SHA2-512-256": 14,
+					 
                                          }, 0),
+					 
                        "GroupDesc": (4, {"768MODPgr": 1,
+		       
                                          "1024MODPgr": 2,
+					 
                                          "1536MODPgr": 5,
+					 
                                          "2048MODPgr": 14,
+					 
                                          "3072MODPgr": 15,
+					 
                                          "4096MODPgr": 16,
+					 
                                          "6144MODPgr": 17,
+					 
                                          "8192MODPgr": 18,
+					 
                                          "256randECPgr": 19,
+					 
                                          "384randECPgr": 20,
+					 
                                          "521randECPgr": 21,
+					 
                                          "1024MODP160POSgr": 22,
+					 
                                          "2048MODP224POSgr": 23,
+					 
                                          "2048MODP256POSgr": 24,
+					 
                                          "192randECPgr": 25,
+					 
                                          "224randECPgr": 26,
+					 
                                          }, 0),
+					 
                        "Extended Sequence Number": (5, {"No ESN": 0,
+		       
                                                         "ESN": 1}, 0),
+							
                        }
+		       
 
 
 	Types of NOTIFY messages can be found at https://www.iana.org/assignments/ikev2-parameters/ikev2-parameters.xhtml
