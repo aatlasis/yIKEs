@@ -39,21 +39,30 @@ B. Modes of Operation
 
 C. Crafting Arbitrary IKEv2 Payload Chains
 ------------------------------------------
-  -pr <PROPOSALS> 		      The Proposals and the included Transformations (e.g. 1.12 means Encryption(1), AES128(12). Transformations included in a Proposal are separated with a ',', whilst proposals themselves are separated with ''. This combination is included in the IKE_INIT message.	Example: 1.1,2.1,3.1/1.2,2.1,3.3/1.1,2.1,3.1,2.2/3.4,4.4,4.3
+  -pr <PROPOSALS> 		      The Proposals and the included Transformations (e.g. 1.12 means Encryption(1), AES128(12). Transformations included in a Proposal are separated with a ',', whilst proposals themselves are separated with ''. This combination is included in the IKE_INIT message. Example: 1.1,2.1,3.1/1.2,2.1,3.3/1.1,2.1,3.1,2.2/3.4,4.4,4.3
+	
   -pr2 <PROPOSALS>		      Same is the -pr switch, but for the IKE_AUTH message. 
+	
   -ip <IKE_PAYLOADS>		    A comma-separated list of IKE identifiers Payloads for the IKE_INIT message. Example: SA refers to Security Association, KE refers to Key Exchange, etc.
-  -ip2 <IKE_PAYLOADS>		    Same as the -ip2 switch, but for the IKE_AUTH message.	
-  -nt <NU_OF_TR>		        The number of transformations >=0 to be included in the corresponding field of the Proposals; when the default value is used, it is auto-calculated based on the rest of the input. HINT: Leave the default value (i.e. do not use the switch), unless you want to try to implement a potential over(under)flow attack.
-  -li <LENGTH_IKE>		      The length of the ikev2 header, >=0, to be included in the corresponding field of the IKEv2 header; when the default value is used, it is auto-calculated based on the rest of the input. HINT: Leave the default value (i.e. do not use the switch), unless you want to try to implement a potential over(under)flow attack.		
+  
+  -ip2 <IKE_PAYLOADS>		    Same as the -ip2 switch, but for the IKE_AUTH message.
+  
+  -nt <NU_OF_TR>		    The number of transformations >=0 to be included in the corresponding field of the Proposals; when the default value is used, it is auto-calculated based on the rest of the input. HINT: Leave the default value (i.e. do not use the switch), unless you want to try to implement a potential over(under)flow attack.
+  
+  -li <LENGTH_IKE>		      The length of the ikev2 header, >=0, to be included in the corresponding field of the IKEv2 header; when the default value is used, it is auto-calculated based on the rest of the input. HINT: Leave the default value (i.e. do not use the switch), unless you want to try to implement a potential over(under)flow attack.
+  
   -lp <LENGTH_PROPOSAL>	    The length of the proposals payload, >=0, to be included in the corresponding field of the Proposal payload; when the default value is used, it is auto-calculated based on the rest of the input. HINT: Leave the default value (i.e. do not use the switch), unless you want to try to implement a potential over(under)flow attack.
+  
   -lt <LENGTH_TRANSFORM>	  The length of the Transformations payload, >=0, to be included in the corresponding field of the Transformations payload; when the default value is used, it is auto-calculated based on the rest of the input. HINT: Leave the default value (i.e. do not use the switch), unless you want to try to implement a potential over(under)flow attack.
+  
   -sN <SIZE_NOTIFY_DATA>	  The size of Notify data (for Notify Types in [16440,16449]), >=0
+  
   -crt <TYPE_CERT_REQUEST>	The Type of the Certificate Request Payload (if present); it must me combined with CERTREQ. 
 
 D. Fragmentation
 ----------------
-  -fr 				The number of fragments > 0 to be used for IKEv2 fragmentation (in IKE_AUTH messages).
-	NOTE:		IP fragmentation is auto-performed when necesssary (in all modes except from the half-init).
+  -fr 			The number of fragments > 0 to be used for IKEv2 fragmentation (in IKE_AUTH messages).
+	NOTE: IP fragmentation is auto-performed when necesssary (in all modes except from the half-init).
  
 E. Perform succesful Diffie-Helman Exchange and IKE_AUTH Encryption/Decryption
 ------------------------------------------------------------------------------
