@@ -9,6 +9,7 @@ WHAT YOU NEED
 - Scapy 
 - (preferrably) Linux OS
 It needs to run with root privileges
+Except from the core file (yIKEs.py), you will also need crypto.py and versionID.py.
 
 A. Various Parameters
 ---------------------
