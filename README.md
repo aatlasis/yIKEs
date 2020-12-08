@@ -61,7 +61,7 @@ C. Crafting Arbitrary IKEv2 Payload Chains
 
 D. Fragmentation
 ----------------
-  -fr <The number of fragments > 0 to be used for IKEv2 fragmentation (in IKE_AUTH messages).
+  -fr <The number of fragments > 	Number of fragments (>0) to be used for IKEv2 fragmentation (in IKE_AUTH messages).
 	
 	NOTE: IP fragmentation is auto-performed when necesssary (in all modes except from the half-init).
  
