@@ -80,52 +80,84 @@ To perform successful Diffie-Helman Exchange and IKE_AUTH Encryption/Decryption,
 F. How to Use it (examples)
 ---------------------------
 Triggering Legitimate Responses
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Nonce,Notify.16388-16389 -pr 1.12,3.12,2.5,4.2 -kl 256
 
+
+
 Triggering Legitimate Responses with Minimum Types of Payloads
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Nonce -pr 1.12,3.12,2.5,4.2 -kl 256
 
+
 Many Transforms in a Proposal
+
 Using ranges:
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Nonce,Notify.16388-16389 -pr 1.1-135,3.1-40,2.1-40,4.1-40 -kl 256
+
 
 NOTE: If you intend to use more than 255 transforms, you must manually define the number of transforms field such as to be ≤255 using the -nt switch (see next examples).
 
+
 Number of Transforms Field = 255 and actual number of Transforms < 255
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Nonce,Notify.16388-16389 -pr 1.12,3.12,2.5,4.2 -kl 256 -nt 255
 
+
 Actual Number of Transforms = 255 and number of Transforms in the corresponding field = 1
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Nonce,Notify.16388-16389 -pr 1.1-135,3.1-40,2.1-40,4.1-40 -kl 256 -nt 1
 
+
 Out of Common Order Payloads
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip Notify.16388-16389,Nonce,KE,Notify.16388-16389,SA,Notify.16388-16389 -pr 1.12,3.12,2.5,4.2 -kl 256
 
+
 Add CERTREQ Payloads
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Nonce,Notify.16388-16389,CERTREQ -crt 6 -pr 1.12,3.12,2.5,4.2 -kl 256
 
+
 Many Proposals in an SA
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Nonce -pr 1.12,3.12,2.5,4.2`python -c 'print "/1.12,3.12,2.5,4.2" *221'`  -kl 256
 
+
 Multiple Proposals in an SA and Multiple Transforms per Proposal
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Nonce -pr 1.12-14,3.12,2.5,4.2`python -c 'print "/1.12,3.12,2.5,4.2" *221'`  -kl 256
 
+
 Too Many Notify Messages
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Notify.16388-16395,Nonce,Notify.16388-16395 -pr 1.12,3.12,2.5,4.2 -kl 256
 
+
 Several Notify Messages of a Big Size
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Nonce,Notify.16388-16389,Notify.14,Notify.16430-16431,Notify.16440-16449,Notify.16404 -sN 6512 
 
+
 Creating half-open IKE-INIT SAs
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -half-init -sub 192.168.56.128/25 -ip SA,KE,Nonce -pr 1.12,3.12,2.5,4.2 -stimeout 120  -rand
 ==> Auto responds to COOKIES
 
+
 Perform a succesful IKE_AUTH exchange as Initiator
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Nonce -ip2 IDi,Notify.16384,IDr,AUTH,TSi,TSr -pr 1.12,3.12,2.5,4.2 -kl 256 -listen -pr2 1.12,3.12,5.0
 
+
 Perform an IKEv2 fragmentation attack at IKE_AUTH exchange
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Nonce,Notify.16430 -ip2 IDr,Notify.16384,IDi,AUTH,TSi,TSr,Notify.16388-16389,Notify.16440  -pr 1.12,3.12,2.5,4.2 -kl 256 -listen -pr2 1.12,3.12,5.0 -fr 2
 
+
 ./yikes.py -d 192.168.56.101 -i vboxnet0 -recon -ip SA,KE,Nonce,Notify.16430 -ip2 IDr,Notify.16384,IDi,AUTH,TSi,TSr,Notify.16388-16389,Notify.16440  -pr 1.12,3.12,2.5,4.2 -kl 256 -listen -pr2 1.12,3.12,5.0`python -c 'print( "/1.12,3.12,2.5,4.2" *215)'` -fr 20 -sN 10000
+
 
 APPENDIX
 --------
