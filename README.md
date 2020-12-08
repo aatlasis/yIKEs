@@ -13,10 +13,15 @@ It needs to run with root privileges
 A. Various Parameters
 ---------------------
   -i <INTERFACE> 		The network interface to use.
+  
   -d <IP>			The address of the target (IPv4 addresses only).
+  
   -p <port>			The port of the target (default 500).
+  
   -sp <port>			The source port of the packet (default 500).
+  
   -stimeout' 			The time to sniff when in listen mode, in seconds (default: 10). Useful when in listen  mode.
+  
   -kl <KLENGTH>		  	The length of the key. Currently, for IKE_AUTH and Diffie-Helman exchange, only a 256 bits Key Length is supported; A different size key length can be used for recon mode only, or for half-init mode. 
 
 B. Modes of Operation
