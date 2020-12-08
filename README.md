@@ -20,19 +20,22 @@ A. Various Parameters
   
   -sp <port>			The source port of the packet (default 500).
   
-  -stimeout' 			The time to sniff when in listen mode, in seconds (default: 10). Useful when in listen  mode.
+  -stimeout <msec> 		The time to sniff when in listen mode, in seconds (default: 10). Useful when in listen  mode.
   
   -kl <KLENGTH>		  	The length of the key. Currently, for IKE_AUTH and Diffie-Helman exchange, only a 256 bits Key Length is supported; A different size key length can be used for recon mode only, or for half-init mode. 
 
 B. Modes of Operation
 ---------------------
-  -recon			      Perform recon. Send an INIT packet and print results of the Respone.
-  -listen 			    Initiate a Listener. Listen for INIT packets, print results and respond.
-  -half-init			  Initiates a half-open init attack (potential DoS). In	this option, packets will not be auto-fragmented and	hence, they need to be smaller than the MTU size.
+  -recon			Perform recon. Send an INIT packet and print results of the Respone.
+  
+  -listen 			Initiate a Listener. Listen for INIT packets, print results and respond.
+  
+  -half-init			Initiates a half-open init attack (potential DoS). In	this option, packets will not be auto-fragmented and	hence, they need to be smaller than the MTU size.
 
-		NOTES:		1) If only -listen is used, it acts as a responder and only sends an IKE_INIT message.
-      				2) If -recon and -listen are used together, it acts as an Initiator sending up to IKE_AUTH message in response to IKE_INIT from a responder.
-				      3) If -recon is only used, it acts as an Initiator and sends only an IKE_INIT message
+	NOTES:		
+	1) If only -listen is used, it acts as a responder and only sends an IKE_INIT message.
+      	2) If -recon and -listen are used together, it acts as an Initiator sending up to IKE_AUTH message in response to IKE_INIT from a responder.
+	3) If -recon is only used, it acts as an Initiator and sends only an IKE_INIT message
 
 C. Crafting Arbitrary IKEv2 Payload Chains
 ------------------------------------------
