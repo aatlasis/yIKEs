@@ -39,9 +39,9 @@ B. Modes of Operation
 
 C. Crafting Arbitrary IKEv2 Payload Chains
 ------------------------------------------
-  -pr <PROPOSALS> 		      The Proposals and the included Transformations (e.g. 1.12 means Encryption(1), AES128(12). Transformations included in a Proposal are separated with a ',', whilst proposals themselves are separated with ''. This combination is included in the IKE_INIT message. Example: 1.1,2.1,3.1/1.2,2.1,3.3/1.1,2.1,3.1,2.2/3.4,4.4,4.3
+  -pr <PROPOSALS> 		    The Proposals and the included Transformations (e.g. 1.12 means Encryption(1), AES128(12). Transformations included in a Proposal are separated with a ',', whilst proposals themselves are separated with ''. This combination is included in the IKE_INIT message. Example: 1.1,2.1,3.1/1.2,2.1,3.3/1.1,2.1,3.1,2.2/3.4,4.4,4.3
 	
-  -pr2 <PROPOSALS>		      Same is the -pr switch, but for the IKE_AUTH message. 
+  -pr2 <PROPOSALS>		    Same is the -pr switch, but for the IKE_AUTH message. 
 	
   -ip <IKE_PAYLOADS>		    A comma-separated list of IKE identifiers Payloads for the IKE_INIT message. Example: SA refers to Security Association, KE refers to Key Exchange, etc.
   
@@ -61,17 +61,17 @@ C. Crafting Arbitrary IKEv2 Payload Chains
 
 D. Fragmentation
 ----------------
-  -fr 			The number of fragments > 0 to be used for IKEv2 fragmentation (in IKE_AUTH messages).
+  -fr <The number of fragments > 0 to be used for IKEv2 fragmentation (in IKE_AUTH messages).
 	NOTE: IP fragmentation is auto-performed when necesssary (in all modes except from the half-init).
  
 E. Perform succesful Diffie-Helman Exchange and IKE_AUTH Encryption/Decryption
 ------------------------------------------------------------------------------
 To perform successful Diffie-Helman Exchange and IKE_AUTH Encryption/Decryption, currently only the following are supported:
-	Diffie Helman Group:		        2
+	Diffie Helman Group:		      2
 	Encryption Key length:		      256
 	Encryption algorithm: 		      AES-CBC
 	Integrity protection algorithm: SHA2-256-128
-	PRF:				                    PRF_HMAC_SHA2_256
+	PRF:				      PRF_HMAC_SHA2_256
 
 	Therefore, to test a device up to IKE_AUTH exchange, configure the testing device to use the aformentioned parmeters. 
 	NOTE: 	Authentication fails on purpose (since currently the objective of the tool is to perform attacks as a non-authenticated device only).
